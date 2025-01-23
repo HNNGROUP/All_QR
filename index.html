@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>All QR</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Kanit", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+      padding: 20px;
+      background-color: #ccffdf;
+    }
+
+    .download-links {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .download-links a {
+      margin: 10px 0;
+      padding: 8px 17px;
+      border-radius: 5px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: #818181 0px 0px 2px;
+    }
+
+    .download-links a:hover {
+      background: #ccc;
+    }
+
+    a {
+      text-decoration: none;
+      color: blue;
+      color: #333333;
+    }
+
+    a:hover {
+      color: darkblue;
+    }
+
+    h1 {
+      text-transform: uppercase;
+      text-align: center;
+      background-color: black;
+      color: #fff;
+    }
+
+    .download-links button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #25d366;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .steps ul {
+      list-style: none;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero {
+      padding: 15px;
+      box-shadow: 0 0 5px #25d366;
+      background-color: #fff;
+      border-radius: 5px;
+      border: 2px solid #25d366; /* Border added */
+    }
+
+    .download-links a p {
+      text-align: left;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Copy Input Field and Button Styling */
+    .copy-container {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .copy-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      border: 2px solid #ccc; /* Border around the item */
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .copy-item input {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      margin-right: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex-grow: 1; /* Ensures the input takes available space */
+    }
+
+    .copy-item input:focus {
+      outline: none;
+      border-color: #25d366;
+    }
+
+    .copy-btn {
+      padding: 10px 20px;
+      background-color: #25d366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .copy-btn:hover {
+      background-color: #25d366;
+    }
+
+    .copy-btn:active {
+      transform: scale(0.98);
+    }
+
+    .copy-btn:focus {
+      outline: none;
+    }
+
+    /* Custom Popup Styling */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #25d366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .popup.show {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Responsive Layout for Mobile */
+    @media (max-width: 768px) {
+      .copy-container {
+        align-items: stretch;
+      }
+
+      .copy-item {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .copy-item input {
+        width: 80%; /* Increase input field width on small screens */
+        margin-bottom: 10px;
+      }
+
+      .copy-btn {
+        width: 40%; /* Reduce button width on small screens */
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="hero">
+
+      <div class="steps">
+        <h2 style="text-decoration: underline; margin-bottom: 10px;">How To Pay Steps: <img src="upi.png" alt="" width="70px"></h2>
+        <ul>
+          <li>1. Click Download Button To Get QR CODE.</li>
+          <li>2. Open UPI App for Payment.</li>
+          <li>3. <strong style="color: red;">Important! </strong>Take Screen Shot of Payment And Upload in Form.</li>
+        </ul>
+      </div>
+
+      <ul class="download-links">
+        <a href="1.jpg" download="1.jpg" onclick="handleDownload(event, '1.jpg')">
+          <P><span>QR CODE 1<span style="color: #25d366"></span></span></P><button>DOWNLOAD</button>
+        </a>
+        <a href="2.jpg" download="2.jpg" onclick="handleDownload(event, '2.jpg')">
+          <P><span>QR CODE 2<span style="color: #25d366"></span></span></P><button>DOWNLOAD</button>
+        </a>
+        <a href="3.jpg" download="3.jpg" onclick="handleDownload(event, '3.jpg')">
+          <P><span>QR CODE 3<span style="color: #25d366"></span></span></P><button>DOWNLOAD</button>
+        </a>
+        <a href="4.jpg" download="4.jpg" onclick="handleDownload(event, '4.jpg')">
+          <P><span>QR CODE 1<span style="color: #25d366"></span></span></P><button>DOWNLOAD</button>
+        </a>
+      </ul>
+
+      <!-- Multiple Copy Input Fields -->
+      <div class="copy-container">
+        <div class="copy-item">
+          <input id="textToCopy1" type="text" value="avezzi3982@icici" readonly />
+          <button class="copy-btn" onclick="copyText('textToCopy1', 'ID Copied!')">Copy</button>
+        </div>
+
+        <div class="copy-item">
+          <input id="textToCopy2" type="text" value="futurekeebooks@icici" readonly />
+          <button class="copy-btn" onclick="copyText('textToCopy2', 'ID Copied!')">Copy</button>
+        </div>
+
+        <div class="copy-item">
+          <input id="textToCopy3" type="text" value="cca.1988061@icici" readonly />
+          <button class="copy-btn" onclick="copyText('textToCopy3', 'ID Copied!')">Copy</button>
+        </div>
+        <div class="copy-item">
+          <input id="textToCopy4" type="text" value="ridhi4300@ybl" readonly />
+          <button class="copy-btn" onclick="copyText('textToCopy4', 'ID Copied!')">Copy</button>
+        </div>
+      </div>
+
+      <!-- Custom Popup -->
+      <div id="popupMessage" class="popup">Text copied to clipboard!</div>
+
+    </div>
+  </div>
+
+  <script>
+    function handleDownload(event, filename) {
+      event.preventDefault();
+
+      // Check if the file is already downloaded
+      const downloaded = localStorage.getItem(filename);
+
+      if (downloaded) {
+        console.log("File already downloaded. Re-downloading...");
+      } else {
+        console.log("Downloading for the first time...");
+        localStorage.setItem(filename, true);
+      }
+
+      // Trigger download
+      const link = document.createElement("a");
+      link.href = filename;
+      link.download = filename;
+      link.click();
+
+      // Close the window after 2 seconds
+      setTimeout(() => {
+        window.close();
+      }, 3000);
+    }
+
+    // Function to copy text to clipboard and show popup
+    function copyText(id, message) {
+      const text = document.getElementById(id);
+      text.select();
+      text.setSelectionRange(0, 99999); // For mobile devices
+      document.execCommand("copy");
+
+      // Show popup with message
+      showPopup(message);
+
+      // Close the page after 2 seconds
+      setTimeout(() => {
+        window.close();
+      }, 2000); // Close after 2 seconds
+    }
+
+    // Function to show the popup message
+    function showPopup(message) {
+      const popup = document.getElementById("popupMessage");
+      popup.textContent = message; // Set the message
+      popup.classList.add("show"); // Show the popup
+
+      // Hide the popup after 2 seconds
+      setTimeout(() => {
+        popup.classList.remove("show");
+      }, 2000);
+    }
+  </script>
+
+</body>
+
+
